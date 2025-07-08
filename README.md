@@ -13,6 +13,7 @@ Prerequisites
      IntelliJ Community edition
      extent reporter
      Rest Assured
+     CI/CD GitHUB actions
 
      
 Project structure

@@ -10,6 +10,8 @@ Prerequisites
      Java
      Maven
      IntelliJ Community edition
+     extent_reporter
+     Rest Assured
 
      
 Project structure

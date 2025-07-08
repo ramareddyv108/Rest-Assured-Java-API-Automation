@@ -6,10 +6,14 @@ This project provides a template for automating REST API testing across multiple
 Rest Assured Java API Automation CI
 
 Prerequisites
-Java
-Maven
-IntelliJ Community edition
+
+     Java
+     Maven
+     IntelliJ Community edition
+
+     
 Project structure
+
 .github/                                              # GitHub workflow configurations
 logs/                                                 # Log4j log files
 reports/                                              # Extent HTML report files
@@ -97,3 +101,10 @@ Using Command Line
         mvn clean test -Pqa,regression-test
 
 Note: By default, if no Maven profiles are selected, the tests will be executed on the dev environment.
+
+How to check reports:-
+
+  After running the mvn commands , you can see the reports under
+        1) reports/html-reports
+        2) target/surefire-reports/emailable-report.html
+        3) target/surefire-reports/index.html

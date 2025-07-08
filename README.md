@@ -105,6 +105,9 @@ Note: By default, if no Maven profiles are selected, the tests will be executed 
 How to check reports:-
 
   After running the mvn commands , you can see the reports under
+  
         1) reports/html-reports
+        
         2) target/surefire-reports/emailable-report.html
+        
         3) target/surefire-reports/index.html

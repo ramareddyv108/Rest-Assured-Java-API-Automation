@@ -16,69 +16,202 @@ Prerequisites
      
 Project structure
 
-.github/                                              # GitHub workflow configurations
-logs/                                                 # Log4j log files
-reports/                                              # Extent HTML report files
-src/
-├── main/
-│   ├── java/
-│   │   └── com/
-│   │       └── restassured/
-│   │           └── example/
-│   │               ├── Category.java
-│   │               ├── HttpMethod.java
-│   │               ├── constant/                     # Project related constants including Application and Reporter contants
-│   │               │   ├── ApplicationConstant.java
-│   │               │   ├── AuthenticationConstant.java
-│   │               │   ├── CommonConstant.java
-│   │               │   └── ReporterConstant.java
-│   │               ├── model/                        # Model classes which represents the request JSON payload
-│   │               │   ├── AuthenticationRequest.java
-│   │               │   ├── BookingDates.java
-│   │               │   ├── BookingRequest.java
-│   │               ├── service/
-│   │               │   ├── ExtentReportService.java  # Extent report setup services
-│   │               │   └── app/                      # Application service classes
-│   │               │       ├── AuthenticationService.java
-│   │               │       └── BookingService.java
-│   │               └── util/                         # Utility methods
-│   │                   ├── AnnotationReader.java
-│   │                   └── FileReader.java
-│   │                   └── JsonFormatter.java
-│   │                   └── Log4jFilter.java
-│   │                   └── RestClient.java
-│   │                   └── TestListener.java
-│   └── resources/                                    # Resource files for logging and reporting
-│       ├── log4j2.xml
-│       └── test-reporter.properties
-├── test/
-│   ├── java/
-│   │   └── com/
-│   │       └── restassured/
-│   │           └── example/
-│   │               └── test/
-│   │                   ├── constant/                     # Test constants
-│   │                   │   └── TestCategory.java
-│   │                   ├── AuthTest.java                 # Authentication tests
-│   │                   ├── BaseTest.java                 # Base test class setup
-│   │                   ├── CreateBookingTest.java        # API test for creating a booking
-│   │                   ├── DeleteBookingTest.java        # API test for deleting a booking
-│   │                   ├── GetAllBookingsTest.java       # API test for fetching all bookings
-│   │                   └── UpdateBookingTest.java        # API test for updating a booking
-│   └── resources/
-│       └── env/                                          # Environment configurations
-│           ├── dev.properties
-│           ├── pre-prod.properties
-│           ├── prod.properties
-│           ├── qa.properties
-│           └── uat.properties
-│       └── regression-suite.xml                          # TestNG regression test suite configuration
-│       └── smoke-suite.xml                               # TestNG smoke test suite configuration
-target/                                                   # Compiled code and build artifacts are stored here
-.gitignore                                                # Specifies files and directories to be ignored by Git
-LICENSE                                                   # License information for the project
-pom.xml                                                   # Maven configuration file for dependencies and build settings
-README.md                                                 # Repository overview and instructions (This file)
+.
+¦   .gitignore
+¦   LICENSE
+¦   pom.xml
+¦   README.md
+¦   
++---.github
+¦   +---workflows
+¦           rest-assured-java-ci.yml
+¦           
++---.idea
+¦       .gitignore
+¦       workspace.xml
+¦       
++---logs
+¦       log-2025-07-08-13-59-23.log
+¦       
++---reports
+¦   +---html-reports
+¦           test_execution_results_2025-07-08 13-59-23.html
+¦           
++---src
+¦   +---main
+¦   ¦   +---java
+¦   ¦   ¦   +---com
+¦   ¦   ¦       +---restassured
+¦   ¦   ¦           +---example
+¦   ¦   ¦               ¦   Category.java
+¦   ¦   ¦               ¦   HttpMethod.java
+¦   ¦   ¦               ¦   
+¦   ¦   ¦               +---constant
+¦   ¦   ¦               ¦       ApplicationConstant.java
+¦   ¦   ¦               ¦       AuthenticationConstant.java
+¦   ¦   ¦               ¦       CommonConstant.java
+¦   ¦   ¦               ¦       ReporterConstant.java
+¦   ¦   ¦               ¦       
+¦   ¦   ¦               +---model
+¦   ¦   ¦               ¦       AuthenticationRequest.java
+¦   ¦   ¦               ¦       BookingDates.java
+¦   ¦   ¦               ¦       BookingRequest.java
+¦   ¦   ¦               ¦       
+¦   ¦   ¦               +---service
+¦   ¦   ¦               ¦   ¦   ExtentReportService.java
+¦   ¦   ¦               ¦   ¦   
+¦   ¦   ¦               ¦   +---app
+¦   ¦   ¦               ¦           AuthenticationService.java
+¦   ¦   ¦               ¦           BookingService.java
+¦   ¦   ¦               ¦           
+¦   ¦   ¦               +---util
+¦   ¦   ¦                       AnnotationReader.java
+¦   ¦   ¦                       FileReader.java
+¦   ¦   ¦                       JsonFormatter.java
+¦   ¦   ¦                       Log4jFilter.java
+¦   ¦   ¦                       RestClient.java
+¦   ¦   ¦                       TestListener.java
+¦   ¦   ¦                       
+¦   ¦   +---resources
+¦   ¦           log4j2.xml
+¦   ¦           test-reporter.properties
+¦   ¦           
+¦   +---test
+¦       +---java
+¦       ¦   +---com
+¦       ¦       +---restassured
+¦       ¦           +---example
+¦       ¦               +---test
+¦       ¦                   ¦   AuthTest.java
+¦       ¦                   ¦   BaseTest.java
+¦       ¦                   ¦   CreateBookingTest.java
+¦       ¦                   ¦   DeleteBookingTest.java
+¦       ¦                   ¦   GetAllBookingsTest.java
+¦       ¦                   ¦   UpdateBookingTest.java
+¦       ¦                   ¦   
+¦       ¦                   +---constant
+¦       ¦                           TestCategory.java
+¦       ¦                           
+¦       +---resources
+¦           ¦   regression-suite.xml
+¦           ¦   smoke-suite.xml
+¦           ¦   
+¦           +---env
+¦                   dev.properties
+¦                   pre-prod.properties
+¦                   prod.properties
+¦                   qa.properties
+¦                   uat.properties
+¦                   
++---target
+    +---classes
+    ¦   ¦   log4j2.xml
+    ¦   ¦   test-reporter.properties
+    ¦   ¦   
+    ¦   +---com
+    ¦       +---restassured
+    ¦           +---example
+    ¦               ¦   Category.class
+    ¦               ¦   HttpMethod.class
+    ¦               ¦   
+    ¦               +---constant
+    ¦               ¦       ApplicationConstant.class
+    ¦               ¦       AuthenticationConstant.class
+    ¦               ¦       CommonConstant.class
+    ¦               ¦       ReporterConstant.class
+    ¦               ¦       
+    ¦               +---model
+    ¦               ¦       AuthenticationRequest.class
+    ¦               ¦       BookingDates.class
+    ¦               ¦       BookingRequest.class
+    ¦               ¦       
+    ¦               +---service
+    ¦               ¦   ¦   ExtentReportService.class
+    ¦               ¦   ¦   
+    ¦               ¦   +---app
+    ¦               ¦           AuthenticationService.class
+    ¦               ¦           BookingService.class
+    ¦               ¦           
+    ¦               +---util
+    ¦                       AnnotationReader.class
+    ¦                       FileReader.class
+    ¦                       JsonFormatter.class
+    ¦                       Log4jFilter.class
+    ¦                       RestClient$1.class
+    ¦                       RestClient.class
+    ¦                       TestListener.class
+    ¦                       
+    +---generated-sources
+    ¦   +---annotations
+    +---generated-test-sources
+    ¦   +---test-annotations
+    +---maven-status
+    ¦   +---maven-compiler-plugin
+    ¦       +---compile
+    ¦       ¦   +---default-compile
+    ¦       ¦           createdFiles.lst
+    ¦       ¦           inputFiles.lst
+    ¦       ¦           
+    ¦       +---testCompile
+    ¦           +---default-testCompile
+    ¦                   createdFiles.lst
+    ¦                   inputFiles.lst
+    ¦                   
+    +---surefire-reports
+    ¦   ¦   bullet_point.png
+    ¦   ¦   collapseall.gif
+    ¦   ¦   emailable-report.html
+    ¦   ¦   failed.png
+    ¦   ¦   index.html
+    ¦   ¦   jquery-3.6.0.min.js
+    ¦   ¦   navigator-bullet.png
+    ¦   ¦   passed.png
+    ¦   ¦   skipped.png
+    ¦   ¦   TEST-TestSuite.xml
+    ¦   ¦   testng-failed.xml
+    ¦   ¦   testng-reports.css
+    ¦   ¦   testng-reports.js
+    ¦   ¦   testng-reports1.css
+    ¦   ¦   testng-reports2.js
+    ¦   ¦   testng-results.xml
+    ¦   ¦   TestSuite.txt
+    ¦   ¦   
+    ¦   +---API Automation Demo Regression Test Suite
+    ¦   ¦       Regression Test.html
+    ¦   ¦       Regression Test.xml
+    ¦   ¦       testng-failed.xml
+    ¦   ¦       
+    ¦   +---junitreports
+    ¦           TEST-com.restassured.example.test.CreateBookingTest.xml
+    ¦           TEST-com.restassured.example.test.DeleteBookingTest.xml
+    ¦           TEST-com.restassured.example.test.UpdateBookingTest.xml
+    ¦           
+    +---test-classes
+        ¦   regression-suite.xml
+        ¦   smoke-suite.xml
+        ¦   
+        +---com
+        ¦   +---restassured
+        ¦       +---example
+        ¦           +---test
+        ¦               ¦   AuthTest.class
+        ¦               ¦   BaseTest.class
+        ¦               ¦   CreateBookingTest.class
+        ¦               ¦   DeleteBookingTest.class
+        ¦               ¦   GetAllBookingsTest.class
+        ¦               ¦   UpdateBookingTest.class
+        ¦               ¦   
+        ¦               +---constant
+        ¦                       TestCategory.class
+        ¦                       
+        +---env
+                dev.properties
+                pre-prod.properties
+                prod.properties
+                qa.properties
+                uat.properties
+                
+
 How to run tests
 
    Using IntelliJ Community Edition

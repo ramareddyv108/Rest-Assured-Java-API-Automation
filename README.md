@@ -75,12 +75,19 @@ pom.xml                                                   # Maven configuration 
 README.md                                                 # Repository overview and instructions (This file)
 
 How to run tests
+
 Using IntelliJ Community Edition
+
 Go to Maven Profiles
+
 Select dev, qa, uat, pre-prod or prod Maven Profile as the environment
+
 Select the test classes on the src/test/java folder
+
 Right-click and click on Run
+
 Using Command Line
+
 To run the smoke test suite against the UAT environment
 
 mvn clean test -Puat,smoke-test

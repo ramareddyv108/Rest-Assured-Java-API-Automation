@@ -9,8 +9,9 @@ Prerequisites
 
      Java
      Maven
+     TestNG
      IntelliJ Community edition
-     extent_reporter
+     extent reporter
      Rest Assured
 
      

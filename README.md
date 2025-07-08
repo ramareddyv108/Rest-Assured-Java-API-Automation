@@ -76,24 +76,24 @@ README.md                                                 # Repository overview 
 
 How to run tests
 
-Using IntelliJ Community Edition
+   Using IntelliJ Community Edition
 
-Go to Maven Profiles
+     Go to Maven Profiles
 
-Select dev, qa, uat, pre-prod or prod Maven Profile as the environment
+     Select dev, qa, uat, pre-prod or prod Maven Profile as the environment
 
-Select the test classes on the src/test/java folder
+     Select the test classes on the src/test/java folder
 
-Right-click and click on Run
+     Right-click and click on Run
 
 Using Command Line
 
-To run the smoke test suite against the UAT environment
+     To run the smoke test suite against the UAT environment
 
-mvn clean test -Puat,smoke-test
+        mvn clean test -Puat,smoke-test
 
-To run the regression test suite against the QA environment
+     To run the regression test suite against the QA environment
 
-mvn clean test -Pqa,regression-test
+        mvn clean test -Pqa,regression-test
 
 Note: By default, if no Maven profiles are selected, the tests will be executed on the dev environment.

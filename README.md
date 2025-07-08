@@ -8,7 +8,7 @@ Rest Assured Java API Automation CI
 Prerequisites
 Java
 Maven
-IntelliJ IDEA
+IntelliJ Community edition
 Project structure
 .github/                                              # GitHub workflow configurations
 logs/                                                 # Log4j log files

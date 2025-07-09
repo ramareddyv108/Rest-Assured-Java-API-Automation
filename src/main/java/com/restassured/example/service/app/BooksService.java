@@ -2,21 +2,23 @@ package com.restassured.example.service.app;
 
 import com.restassured.example.util.RestClient;
 
+import java.util.Collections;
+
 import static com.restassured.example.HttpMethod.GET;
-import static com.restassured.example.constant.ApplicationConstant.BOOKING_SERVICE_ENDPOINT;
-import static com.restassured.example.constant.ApplicationConstant.RESTFUL_BOOKER_BASE_URL;
+import static com.restassured.example.constant.ApplicationConstant.*;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.http.HttpStatus.SC_OK;
 
-public class BookingService {
+public class BooksService {
     public static String getBookingIdFromBookingDb() {
-        return new RestClient(RESTFUL_BOOKER_BASE_URL, BOOKING_SERVICE_ENDPOINT, EMPTY)
+        return new RestClient(RESTFUL_BOOKER_BASE_URL, BOOKS_SERVICE_ENDPOINT,
+                Collections.emptyMap(), true, Collections.emptyMap(), EMPTY)
                 .sendRequest(GET)
                 .statusCode(SC_OK)
                 .extract()
                 .body()
                 .jsonPath()
-                .get("[0].bookingid")
+                .get("[0].id")
                 .toString();
     }
 }

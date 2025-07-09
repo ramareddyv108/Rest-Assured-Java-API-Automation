@@ -10,15 +10,18 @@ public class ApplicationConstant {
 
     static {
         try {
-            RESTFUL_BOOKER_BASE_URL = getEnvironmentConfig("restful_booker_base_url");
+            RESTFUL_BOOKER_BASE_URL = getEnvironmentConfig("book_base_url");
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
     }
 
     // API Endpoints
-    public static final String AUTH_SERVICE_ENDPOINT = "/auth";
-    public static final String BOOKING_SERVICE_ENDPOINT = "/booking";
+    public static final String SIGNUP_SERVICE_ENDPOINT = "/signup";
+    public static final String HEALTH_SERVICE_ENDPOINT = "/health";
+    public static final String AUTH_SERVICE_ENDPOINT = "/login";
+//    public static final String BOOKING_SERVICE_ENDPOINT = "/booking";
+    public static final String BOOKS_SERVICE_ENDPOINT = "/books/";
 
     // Headers
     public static final String AUTH_HEADER_NAME = "Cookie";

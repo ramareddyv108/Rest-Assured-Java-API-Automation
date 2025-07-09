@@ -8,36 +8,34 @@ import org.testng.annotations.Test;
 import java.util.Collections;
 
 import static com.restassured.example.HttpMethod.DELETE;
-import static com.restassured.example.constant.ApplicationConstant.BOOKING_SERVICE_ENDPOINT;
-import static com.restassured.example.constant.ApplicationConstant.RESTFUL_BOOKER_BASE_URL;
-import static com.restassured.example.service.app.BookingService.getBookingIdFromBookingDb;
-import static com.restassured.example.test.constant.TestCategory.BOOKING;
+import static com.restassured.example.constant.ApplicationConstant.*;
+import static com.restassured.example.service.app.BooksService.getBookingIdFromBookingDb;
+import static com.restassured.example.test.constant.TestCategory.BOOKS;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
-import static org.apache.http.HttpStatus.SC_CREATED;
-import static org.apache.http.HttpStatus.SC_FORBIDDEN;
+import static org.apache.http.HttpStatus.*;
 
-public class DeleteBookingTest extends BaseTest {
+public class DeleteBooksTest extends BaseTest {
     private String deleteBookingEndpoint;
 
     @BeforeMethod
     public void setDeleteBookingEndpoint() {
-        deleteBookingEndpoint = BOOKING_SERVICE_ENDPOINT
-                .concat("/")
+        deleteBookingEndpoint = BOOKS_SERVICE_ENDPOINT
+//                .concat("/")
                 .concat(getBookingIdFromBookingDb());
     }
 
-    @Category(BOOKING)
-    @Test(description = "Verify that a booking can be deleted")
-    public void testBookingDeletion() {
+    @Category(BOOKS)
+    @Test(description = "Verify that a book can be deleted")
+    public void testBooksDeletion() {
         new RestClient(RESTFUL_BOOKER_BASE_URL, deleteBookingEndpoint, Collections.emptyMap(),
                 true, Collections.emptyMap(), EMPTY)
                 .sendRequest(DELETE)
-                .statusCode(SC_CREATED);
+                .statusCode(SC_OK);
     }
 
-    @Category(BOOKING)
-    @Test(description = "Verify that a booking cannot be deleted without the authentication")
-    public void testBookingDeletionWithoutAuthentication() {
+    @Category(BOOKS)
+    @Test(description = "Verify that a book cannot be deleted without the authentication")
+    public void testBooksDeletionWithoutAuthentication() {
         new RestClient(RESTFUL_BOOKER_BASE_URL, deleteBookingEndpoint, Collections.emptyMap(),
                 false, Collections.emptyMap(), EMPTY)
                 .sendRequest(DELETE)

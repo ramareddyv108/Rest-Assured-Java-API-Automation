@@ -10,13 +10,13 @@ import java.util.Map;
 
 import static com.restassured.example.HttpMethod.POST;
 import static com.restassured.example.constant.ApplicationConstant.*;
-import static com.restassured.example.constant.AuthenticationConstant.PASSWORD;
-import static com.restassured.example.constant.AuthenticationConstant.USERNAME;
+import static com.restassured.example.constant.AuthenticationConstant.*;
 
 public class AuthenticationService {
     public static Map<String, String> getAuthenticationHeaders() {
         AuthenticationRequest authenticationRequest = new AuthenticationRequest();
-        authenticationRequest.setUsername(USERNAME);
+        authenticationRequest.setId(ID);
+        authenticationRequest.setEmail(USERNAME);
         authenticationRequest.setPassword(PASSWORD);
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -32,9 +32,9 @@ public class AuthenticationService {
                 .extract()
                 .body()
                 .jsonPath()
-                .get("token")
+                .get("access_token")
                 .toString();
 
-        return Collections.singletonMap(AUTH_HEADER_NAME, AUTH_TOKEN_PREFIX + token);
+        return Collections.singletonMap("Authorization", "Bearer " + token);
     }
 }

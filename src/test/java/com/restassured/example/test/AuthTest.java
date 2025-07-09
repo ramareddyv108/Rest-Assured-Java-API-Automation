@@ -8,12 +8,11 @@ import com.restassured.example.util.RestClient;
 import org.testng.annotations.Test;
 
 import static com.restassured.example.HttpMethod.POST;
-import static com.restassured.example.constant.ApplicationConstant.AUTH_SERVICE_ENDPOINT;
-import static com.restassured.example.constant.ApplicationConstant.RESTFUL_BOOKER_BASE_URL;
-import static com.restassured.example.constant.AuthenticationConstant.PASSWORD;
-import static com.restassured.example.constant.AuthenticationConstant.USERNAME;
+import static com.restassured.example.constant.ApplicationConstant.*;
+import static com.restassured.example.constant.AuthenticationConstant.*;
 import static com.restassured.example.test.constant.TestCategory.AUTHENTICATION;
 import static org.apache.http.HttpStatus.SC_OK;
+import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 
 public class AuthTest extends BaseTest {
@@ -21,7 +20,8 @@ public class AuthTest extends BaseTest {
     @Test(description = "Verify that a user can get the access token")
     public void testAuthentication() {
         AuthenticationRequest authenticationRequest = new AuthenticationRequest();
-        authenticationRequest.setUsername(USERNAME);
+        authenticationRequest.setId(ID);
+        authenticationRequest.setEmail(USERNAME);
         authenticationRequest.setPassword(PASSWORD);
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -32,9 +32,14 @@ public class AuthTest extends BaseTest {
             throw new RuntimeException(e);
         }
 
+        new RestClient(RESTFUL_BOOKER_BASE_URL, SIGNUP_SERVICE_ENDPOINT, authRequestJson)
+                .sendRequest(POST)
+                .statusCode(SC_OK)
+                .body("message", equalTo("User created successfully"));
+
         new RestClient(RESTFUL_BOOKER_BASE_URL, AUTH_SERVICE_ENDPOINT, authRequestJson)
                 .sendRequest(POST)
                 .statusCode(SC_OK)
-                .body("token", notNullValue());
+                .body("access_token", notNullValue());
     }
 }

@@ -2,9 +2,11 @@
 <suite name="API Automation Demo Regression Test Suite">
     <test name="Regression Test">
         <classes>
-            <class name="com.restassured.example.test.DeleteBookingTest" />
-            <class name="com.restassured.example.test.CreateBookingTest" />
-            <class name="com.restassured.example.test.UpdateBookingTest" />
+            <class name="com.restassured.example.test.AuthTest" />
+            <class name="com.restassured.example.test.CreateBooksTest" />
+            <class name="com.restassured.example.test.DeleteBooksTest" />
+            <class name="com.restassured.example.test.UpdateBooksTest" />
+            <class name="com.restassured.example.test.GetAllBooksTest" />
         </classes>
     </test>
 </suite>

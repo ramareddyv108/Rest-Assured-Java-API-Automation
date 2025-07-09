@@ -253,3 +253,5 @@ How to check reports:-
         3) target/surefire-reports/index.html
 
         4) target/surefire-reports/API Automation Demo Smoke Test Suite
+            or
+           target/surefire-reports/API Automation Demo Regression Test Suite

@@ -16,9 +16,9 @@ Prerequisites
      CI/CD GitHUB actions
      windows OS
 
-The URL for APIs are given below
+The URL for APIs are given below as provided by you, the python code, i ran that code locally....
 
-   https://restful-booker.herokuapp.com/apidoc/index.html
+   http://127.0.0.1:8000/
      
 Project structure
 

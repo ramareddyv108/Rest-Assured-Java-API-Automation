@@ -14,6 +14,7 @@ Prerequisites
      extent reporter
      Rest Assured
      CI/CD GitHUB actions
+     windows OS
 
 The URL for APIs are given below
 

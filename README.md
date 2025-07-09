@@ -251,3 +251,5 @@ How to check reports:-
         2) target/surefire-reports/emailable-report.html
         
         3) target/surefire-reports/index.html
+
+        4) target/surefire-reports/API Automation Demo Smoke Test Suite
